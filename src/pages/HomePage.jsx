@@ -8,7 +8,7 @@ import MovieCarousel from "../components/MovieCarousel";
 
 const HomePage = () => {
 	const {
-		data: movies,
+		data: popularMovies,
 		error,
 		isError,
 		isLoading,
@@ -20,20 +20,19 @@ const HomePage = () => {
 	);
 
 	const { data: topRated } = useQuery("top-rated", movieDB_API.getTopRated);
-	console.log(movies);
-	console.log("now playing: ", nowPlaying);
-
 	return (
 		<Container fluid="lg" className="py-3">
 			<h1>MovieDB</h1>
 
-			{movies && (
+			{isError && <p>An error has occurred</p>}
+
+			{popularMovies && (
 				<>
-					<MovieCarousel movies={movies.results} />
+					<MovieCarousel movies={popularMovies.results} />
 					<Row>
 						<h2>Popular movies right now</h2>
 
-						{movies.results.map((movie) => (
+						{popularMovies.results.map((movie) => (
 							<Col
 								lg={2}
 								md={4}

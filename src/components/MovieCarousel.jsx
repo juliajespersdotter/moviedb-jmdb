@@ -6,10 +6,9 @@ const MovieCarousel = ({ movies }) => {
 			{movies && (
 				<Carousel>
 					{movies.map((movie) => (
-						<Carousel.Item>
+						<Carousel.Item key={movie.id}>
 							<div className="w-100 m-auto">
 								<img
-									fluid
 									className="w-100 d-block"
 									src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
 								/>
