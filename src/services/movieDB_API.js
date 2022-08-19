@@ -4,12 +4,20 @@
 
 import axios from "axios";
 
-axios.defaults.baseURL = "https://api.themoviedb.org/3";
+// axios.defaults.baseURL = "https://api.themoviedb.org/3";
+
+const BASE_URL = "https://api.themoviedb.org/3";
+
+const IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
 
 const API_KEY = "6ae7c08e53e35ab0814a90502c6e85cb";
 
 const FAKE_SLOW_API = false;
 const FAKE_SLOW_API_DELAY = 1500;
+
+// Poster Image URL
+// last .jpg is poster_path from movie
+// https://image.tmdb.org/t/p/w500/ujr5pztc1oitbe7ViMUOilFaJ7s.jpg
 
 const requestOptions = {
 	params: {
@@ -38,11 +46,16 @@ const get = async (endpoint, options) => {
 
 // GET /discover/movie
 export const getMovies = () => {
-	return get("/discover/movie", requestOptions);
+	return get(`${BASE_URL}/discover/movie`, requestOptions);
+};
+
+export const getMoviePoster = (size, poster_path) => {
+	return get(`${IMAGE_BASE_URL}/${size}/${poster_path}`);
 };
 
 const exports = {
 	getMovies,
+	getMoviePoster,
 };
 
 export default exports;
