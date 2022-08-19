@@ -26,7 +26,7 @@ const HomePage = () => {
 
 			{isError && <p>An error has occurred</p>}
 
-			{popularMovies && (
+			{popularMovies && nowPlaying && topRated && (
 				<>
 					<MovieCarousel movies={popularMovies.results} />
 					<Row>
