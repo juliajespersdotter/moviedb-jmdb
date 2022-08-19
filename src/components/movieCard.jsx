@@ -1,14 +1,27 @@
-import movieDB_API from "../services/movieDB_API";
-import { useQuery } from "react-query";
+import Image from "react-bootstrap/Image";
+import Card from "react-bootstrap/Card";
 
 const MovieCard = ({ movie }) => {
 	let posterPath = movie.poster_path;
 	return (
 		<>
-			<p>{movie.title}</p>
-			<img src={`https://image.tmdb.org/t/p/w300/${posterPath}`} />
+			<Card>
+				<Card.Img
+					variant="top"
+					src={`https://image.tmdb.org/t/p/w300/${posterPath}`}
+				/>
+				<Card.Body>
+					<Card.Text>{movie.title}</Card.Text>
+				</Card.Body>
+			</Card>
 		</>
 	);
 };
+// <p>{movie.title}</p>
+// <Image
+// 	fluid
+// 	rounded
+// 	src={`https://image.tmdb.org/t/p/w200/${posterPath}`}
+// />
 
 export default MovieCard;
