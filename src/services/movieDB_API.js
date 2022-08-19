@@ -23,7 +23,7 @@ const requestOptions = {
 	params: {
 		api_key: "6ae7c08e53e35ab0814a90502c6e85cb",
 		language: "en-US",
-		sort_by: "popularity.desc",
+		// sort_by: "popularity.desc",
 		include_adult: false,
 		page: 1,
 	},
@@ -38,6 +38,8 @@ const requestOptions = {
 const get = async (endpoint, options) => {
 	const res = await axios.get(endpoint, options);
 
+	console.log(endpoint, options);
+
 	FAKE_SLOW_API &&
 		(await new Promise((r) => setTimeout(r, FAKE_SLOW_API_DELAY)));
 
@@ -45,8 +47,16 @@ const get = async (endpoint, options) => {
 };
 
 // GET /discover/movie
-export const getMovies = () => {
-	return get(`${BASE_URL}/discover/movie`, requestOptions);
+export const getPopularMovies = () => {
+	return get(`${BASE_URL}/movie/popular`, requestOptions);
+};
+
+export const getNowPlaying = () => {
+	return get(`${BASE_URL}/movie/now_playing`, requestOptions);
+};
+
+export const getTopRated = () => {
+	return get(`${BASE_URL}/movie/top_rated`, requestOptions);
 };
 
 export const getMoviePoster = (size, poster_path) => {
@@ -54,7 +64,9 @@ export const getMoviePoster = (size, poster_path) => {
 };
 
 const exports = {
-	getMovies,
+	getPopularMovies,
+	getNowPlaying,
+	getTopRated,
 	getMoviePoster,
 };
 

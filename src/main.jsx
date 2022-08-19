@@ -6,8 +6,11 @@ import App from "./App";
 
 const queryClient = new QueryClient({
 	defaultOptions: {
-		refetchOnWindowFocus: false,
-		staleTime: 1000 * 60 * 60, // 1 hour
+		queries: {
+			refetchOnWindowFocus: false,
+			staleTime: 5 * 60 * 1000, // 5 minutes
+			cacheTime: 15 * 60 * 1000, // 15 minutes
+		},
 	},
 });
 
