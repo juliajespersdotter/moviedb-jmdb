@@ -1,1 +1,15 @@
 @import "bootstrap/scss/bootstrap";
+
+body {
+	text-decoration: none;
+}
+
+a,
+Link {
+	text-decoration: none;
+}
+
+.movieCard {
+	border: none;
+	padding: 0;
+}
