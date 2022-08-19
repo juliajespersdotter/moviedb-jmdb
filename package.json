@@ -14,8 +14,10 @@
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
     "react-query": "^3.39.2",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.3.0",
-    "sass": "^1.54.4"
+    "sass": "^1.54.4",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",

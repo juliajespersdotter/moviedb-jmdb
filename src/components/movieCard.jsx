@@ -12,6 +12,7 @@ const MovieCard = ({ movie }) => {
 				/>
 				<Card.Body>
 					<Card.Text>{movie.title}</Card.Text>
+					<Card.Subtitle>{movie.release_date}</Card.Subtitle>
 				</Card.Body>
 			</Card>
 		</>

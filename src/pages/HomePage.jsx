@@ -3,9 +3,8 @@ import movieDB_API from "../services/movieDB_API";
 import { useQuery } from "react-query";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Carousel from "../components/MovieCarousel";
-import MovieCarousel from "../components/MovieCarousel";
 import MovieCard from "../components/MovieCard";
+import MovieCarousel from "../components/MovieCarousel";
 
 const HomePage = () => {
 	const {
@@ -30,6 +29,7 @@ const HomePage = () => {
 
 			{movies && (
 				<>
+					<MovieCarousel movies={movies.results} />
 					<Row>
 						<h2>Popular movies right now</h2>
 
