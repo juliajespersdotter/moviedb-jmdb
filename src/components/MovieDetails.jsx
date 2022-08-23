@@ -15,7 +15,7 @@ const MovieDetails = ({ movie }) => {
 
 	return (
 		<>
-			<Container>
+			<Container className="grey-container">
 				<div className="d-flex justify-content-between w-100 align-items-center">
 					<div>
 						<h1>{movie.title}</h1>
@@ -43,10 +43,15 @@ const MovieDetails = ({ movie }) => {
 						src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
 					></img>
 				</div>
-				<div className="d-flex justify-content-between">
+				<div className="d-flex justify-content-between mt-3">
 					<div>
 						{movie.genres.map((genre, i) => (
-							<Badge key={i} className="p-2 m-1" bg="dark">
+							<Badge
+								key={i}
+								className="p-2 m-1"
+								bg="light"
+								text="dark"
+							>
 								{genre.name}
 							</Badge>
 						))}
@@ -64,10 +69,11 @@ const MovieDetails = ({ movie }) => {
 				<p className="mb-5 w-75">{movie.overview}</p>
 
 				<div className="pt-5">
-					<p className="ms-4text-muted">Cast (in credits order)</p>
+					<p className="ms-4 text-warning">Cast (in credits order)</p>
 					<ListGroup as="ol">
 						{movie.credits.cast.map((actor, i) => (
 							<ListGroup.Item
+								variant="dark"
 								key={i}
 								as="li"
 								className="d-flex justify-content-between align-items-start"

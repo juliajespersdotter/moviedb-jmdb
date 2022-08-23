@@ -12,7 +12,7 @@ Link {
 }
 
 .navbar {
-	background-color: #161717;
+	background-color: $warning;
 }
 
 Nav {
@@ -24,9 +24,9 @@ Nav {
 	padding: 0;
 }
 
-.movie-list {
+.grey-container {
 	background-color: $dark;
-	margin-top: 5rem;
+	margin-top: 4rem;
 	border: 1px solid gray;
 	border-radius: 2rem;
 	padding: 2rem;

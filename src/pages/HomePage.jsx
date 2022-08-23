@@ -22,14 +22,12 @@ const HomePage = () => {
 	const { data: topRated } = useQuery("top-rated", movieDB_API.getTopRated);
 	return (
 		<Container fluid="lg" className="py-3">
-			<h1>MovieDB</h1>
-
 			{isError && <p>An error has occurred</p>}
 
 			{popularMovies && nowPlaying && topRated && (
 				<>
 					<MovieCarousel movies={popularMovies.results} />
-					<div className="movie-list">
+					<div className="grey-container">
 						<h2 className="mb-5">Popular movies right now</h2>
 						<Row>
 							{popularMovies.results.map((movie) => (
@@ -46,7 +44,7 @@ const HomePage = () => {
 						</Row>
 					</div>
 
-					<div className="movie-list">
+					<div className="grey-container">
 						<Row>
 							<h2 className="mb-5">Now Playing</h2>
 							{nowPlaying.results.map((movie) => (
@@ -63,7 +61,7 @@ const HomePage = () => {
 						</Row>
 					</div>
 
-					<div className="movie-list">
+					<div className="grey-container">
 						<Row>
 							<h2 className="mb-5">Top Rated</h2>
 							{topRated.results.map((movie) => (

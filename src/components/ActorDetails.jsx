@@ -7,7 +7,7 @@ const ActorDetails = ({ actor }) => {
 
 	return (
 		<>
-			<Container>
+			<Container className="grey-container">
 				<div className="d-flex justify-content-between w-100 align-items-center">
 					<div>
 						<h1>{actor.name}</h1>
