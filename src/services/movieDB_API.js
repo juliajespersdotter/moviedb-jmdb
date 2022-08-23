@@ -26,6 +26,7 @@ const requestOptions = {
 		// sort_by: "popularity.desc",
 		include_adult: false,
 		page: 1,
+		append_to_response: "credits",
 	},
 };
 
@@ -47,20 +48,24 @@ const get = async (endpoint, options) => {
 };
 
 // GET /discover/movie
-export const getPopularMovies = () => {
+const getPopularMovies = () => {
 	return get(`${BASE_URL}/movie/popular`, requestOptions);
 };
 
-export const getNowPlaying = () => {
+const getNowPlaying = () => {
 	return get(`${BASE_URL}/movie/now_playing`, requestOptions);
 };
 
-export const getTopRated = () => {
+const getTopRated = () => {
 	return get(`${BASE_URL}/movie/top_rated`, requestOptions);
 };
 
-export const getMoviePoster = (size, poster_path) => {
+const getMoviePoster = (size, poster_path) => {
 	return get(`${IMAGE_BASE_URL}/${size}/${poster_path}`);
+};
+
+const getMovie = (id) => {
+	return get(`${BASE_URL}/movie/${id}`, requestOptions);
 };
 
 const exports = {
@@ -68,6 +73,7 @@ const exports = {
 	getNowPlaying,
 	getTopRated,
 	getMoviePoster,
+	getMovie,
 };
 
 export default exports;

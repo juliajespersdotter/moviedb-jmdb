@@ -1,8 +1,11 @@
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import useSlice from "../hooks/useSlice";
 
 const MovieCard = ({ movie }) => {
 	let posterPath = movie.poster_path;
+	const release_date = useSlice(movie.release_date);
+
 	return (
 		<>
 			<Link to={`/movie/${movie.id}`}>
@@ -21,9 +24,7 @@ const MovieCard = ({ movie }) => {
 						</Card.Subtitle> */}
 					</Card.Body>
 					<Card.Footer>
-						<small className="text-muted">
-							{movie.release_date}
-						</small>
+						<small className="text-muted">{release_date}</small>
 					</Card.Footer>
 				</Card>
 			</Link>
