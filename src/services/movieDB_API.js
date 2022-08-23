@@ -68,12 +68,17 @@ const getMovie = (id) => {
 	return get(`${BASE_URL}/movie/${id}`, requestOptions);
 };
 
+const getActor = (id) => {
+	return get(`${BASE_URL}/person/${id}`, requestOptions);
+};
+
 const exports = {
 	getPopularMovies,
 	getNowPlaying,
 	getTopRated,
 	getMoviePoster,
 	getMovie,
+	getActor,
 };
 
 export default exports;

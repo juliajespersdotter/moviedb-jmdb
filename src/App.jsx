@@ -5,6 +5,7 @@ import NotFound from "./pages/NotFound";
 import "./assets/scss/App.scss";
 import MovieInfoPage from "./pages/MovieInfoPage";
 import GenresPage from "./pages/GenresPage";
+import ActorPage from "./pages/ActorPage";
 
 function App() {
 	return (
@@ -14,6 +15,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<HomePage />} />
 				<Route path="/movie/:id" element={<MovieInfoPage />} />
+				<Route path="/actor/:id" element={<ActorPage />} />
 				<Route path="/genres" element={<GenresPage />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
