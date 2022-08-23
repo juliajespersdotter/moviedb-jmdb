@@ -29,51 +29,56 @@ const HomePage = () => {
 			{popularMovies && nowPlaying && topRated && (
 				<>
 					<MovieCarousel movies={popularMovies.results} />
-					<Row>
-						<h2>Popular movies right now</h2>
+					<div className="movie-list">
+						<h2 className="mb-5">Popular movies right now</h2>
+						<Row>
+							{popularMovies.results.map((movie) => (
+								<Col
+									lg={3}
+									md={4}
+									sm={10}
+									key={movie.id}
+									className="pb-5"
+								>
+									<MovieCard movie={movie} />
+								</Col>
+							))}
+						</Row>
+					</div>
 
-						{popularMovies.results.map((movie) => (
-							<Col
-								lg={2}
-								md={4}
-								sm={10}
-								key={movie.id}
-								className="pb-5"
-							>
-								<MovieCard movie={movie} />
-							</Col>
-						))}
-					</Row>
+					<div className="movie-list">
+						<Row>
+							<h2 className="mb-5">Now Playing</h2>
+							{nowPlaying.results.map((movie) => (
+								<Col
+									lg={3}
+									md={4}
+									sm={10}
+									key={movie.id}
+									className="pb-5"
+								>
+									<MovieCard movie={movie} />
+								</Col>
+							))}
+						</Row>
+					</div>
 
-					<Row>
-						<h2>Now Playing</h2>
-						{nowPlaying.results.map((movie) => (
-							<Col
-								lg={2}
-								md={4}
-								sm={10}
-								key={movie.id}
-								className="pb-5"
-							>
-								<MovieCard movie={movie} />
-							</Col>
-						))}
-					</Row>
-
-					<Row>
-						<h2>Top Rated</h2>
-						{topRated.results.map((movie) => (
-							<Col
-								lg={2}
-								md={4}
-								sm={10}
-								key={movie.id}
-								className="pb-5"
-							>
-								<MovieCard movie={movie} />
-							</Col>
-						))}
-					</Row>
+					<div className="movie-list">
+						<Row>
+							<h2 className="mb-5">Top Rated</h2>
+							{topRated.results.map((movie) => (
+								<Col
+									lg={3}
+									md={4}
+									sm={10}
+									key={movie.id}
+									className="pb-5"
+								>
+									<MovieCard movie={movie} />
+								</Col>
+							))}
+						</Row>
+					</div>
 				</>
 			)}
 		</Container>

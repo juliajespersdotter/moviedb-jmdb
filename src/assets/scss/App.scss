@@ -2,6 +2,8 @@
 
 body {
 	text-decoration: none;
+	background-color: #020202;
+	color: white;
 }
 
 a,
@@ -9,7 +11,32 @@ Link {
 	text-decoration: none;
 }
 
-.movieCard {
+.navbar {
+	background-color: #161717;
+}
+
+Nav {
+	color: white;
+}
+
+.movie-card {
 	border: none;
 	padding: 0;
+}
+
+.movie-list {
+	background-color: $dark;
+	margin-top: 5rem;
+	border: 1px solid gray;
+	border-radius: 2rem;
+	padding: 2rem;
+}
+
+.movie-text {
+	text-decoration: none;
+	color: white;
+}
+
+.movie-text:hover {
+	color: red;
 }

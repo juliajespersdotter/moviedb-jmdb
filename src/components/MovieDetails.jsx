@@ -63,28 +63,30 @@ const MovieDetails = ({ movie }) => {
 				<h4 className="mt-5 mb-3">{movie.tagline}</h4>
 				<p className="mb-5 w-75">{movie.overview}</p>
 
-				<p className="ms-4 text-muted">Cast (in credits order)</p>
-				<ListGroup as="ol">
-					{movie.credits.cast.map((actor, i) => (
-						<ListGroup.Item
-							key={i}
-							as="li"
-							className="d-flex justify-content-between align-items-start"
-						>
-							<div className="ms-2 me-auto">
-								<div className="fw-bold">{actor.name}</div>
-								{actor.character}
-							</div>
-							<Button
-								variant="dark"
-								as={Link}
-								to={`/actor/${actor.id}`}
+				<div className="pt-5">
+					<p className="ms-4text-muted">Cast (in credits order)</p>
+					<ListGroup as="ol">
+						{movie.credits.cast.map((actor, i) => (
+							<ListGroup.Item
+								key={i}
+								as="li"
+								className="d-flex justify-content-between align-items-start"
 							>
-								Read more
-							</Button>
-						</ListGroup.Item>
-					))}
-				</ListGroup>
+								<div className="ms-2 me-auto">
+									<div className="fw-bold">{actor.name}</div>
+									{actor.character}
+								</div>
+								<Button
+									variant="dark"
+									as={Link}
+									to={`/actor/${actor.id}`}
+								>
+									Read more
+								</Button>
+							</ListGroup.Item>
+						))}
+					</ListGroup>
+				</div>
 			</Container>
 		</>
 	);
