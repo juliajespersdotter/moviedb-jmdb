@@ -1,23 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import { useParams } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 import useMoviesByGenre from "../hooks/useMoviesByGenre";
 import MovieCard from "../components/MovieCard";
 import Pagination from "../components/Pagination";
+import { useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 const BrowseGenrePage = () => {
-	const [page, setPage] = useState(1);
+	const [searchParams, setSearchParams] = useSearchParams({ page: 1 });
+	const page = searchParams.get("page")
+		? Number(searchParams.get("page"))
+		: null;
 	const { id, name } = useParams();
 	const { data: movies } = useMoviesByGenre(id, page);
-	console.log(movies);
+	const navigate = useNavigate();
 
 	return (
 		<Container fluid="lg" className="py-3">
 			{movies && (
 				<div className="grey-container">
-					<h2 className="mb-5">{name}</h2>
+					<div className="d-flex justify-content-between w-100 align-items-center">
+						<h2 className="mb-5">{name}</h2>
+						<Button
+							variant="secondary"
+							onClick={() => navigate(-1)}
+						>
+							&laquo; Back
+						</Button>
+					</div>
 					<Row>
 						{movies.results.map((movie) => (
 							<Col
@@ -38,11 +52,9 @@ const BrowseGenrePage = () => {
 						hasPreviousPage={movies.page !== 1}
 						hasNextPage={movies.page !== movies.total_pages}
 						onPreviousPage={() =>
-							setPage((currentPage) => currentPage - 1)
+							setSearchParams({ page: page - 1 })
 						}
-						onNextPage={() =>
-							setPage((currentPage) => currentPage + 1)
-						}
+						onNextPage={() => setSearchParams({ page: page + 1 })}
 					/>
 				</div>
 			)}
