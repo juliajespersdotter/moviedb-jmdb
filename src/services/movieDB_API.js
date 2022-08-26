@@ -84,6 +84,10 @@ const getMoviesByGenre = (id, page) => {
 	);
 };
 
+const getRecommended = (id) => {
+	return get(`${BASE_URL}/movie/${id}/recommendations`, requestOptions);
+};
+
 const exports = {
 	getPopularMovies,
 	getNowPlaying,
@@ -93,6 +97,7 @@ const exports = {
 	getActor,
 	getGenres,
 	getMoviesByGenre,
+	getRecommended,
 };
 
 export default exports;
