@@ -7,12 +7,10 @@ import MovieCard from "../components/MovieCard";
 import MovieCarousel from "../components/MovieCarousel";
 
 const HomePage = () => {
-	const {
-		data: popularMovies,
-		error,
-		isError,
-		isLoading,
-	} = useQuery("movies", movieDB_API.getPopularMovies);
+	const { data: popularMovies, isError } = useQuery(
+		"movies",
+		movieDB_API.getPopularMovies
+	);
 
 	const { data: nowPlaying } = useQuery(
 		"now-playing",

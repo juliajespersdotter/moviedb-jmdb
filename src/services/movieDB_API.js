@@ -72,6 +72,14 @@ const getActor = (id) => {
 	return get(`${BASE_URL}/person/${id}`, requestOptions);
 };
 
+const getGenres = () => {
+	return get(`${BASE_URL}/genre/movie/list`, requestOptions);
+};
+
+const getMoviesByGenre = (id) => {
+	return get(`${BASE_URL}/discover/movie?&with_genres=${id}`, requestOptions);
+};
+
 const exports = {
 	getPopularMovies,
 	getNowPlaying,
@@ -79,6 +87,8 @@ const exports = {
 	getMoviePoster,
 	getMovie,
 	getActor,
+	getGenres,
+	getMoviesByGenre,
 };
 
 export default exports;
