@@ -2,9 +2,6 @@ import React from "react";
 import { Button, Container, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import MovieCard from "./movieCard";
 
 const ActorDetails = ({ actor }) => {
 	const navigate = useNavigate();

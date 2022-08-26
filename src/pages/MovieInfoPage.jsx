@@ -6,7 +6,7 @@ import useMovieRecs from "../hooks/useMovieRecs";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Container } from "react-bootstrap";
-import MovieCard from "../components/movieCard";
+import MovieCard from "../components/MovieCard";
 
 const MovieInfoPage = () => {
 	const { id } = useParams();
