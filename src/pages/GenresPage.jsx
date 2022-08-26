@@ -5,12 +5,14 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const GenresPage = () => {
-	const { data: genres } = useGenres();
+	const { data: genres, isLoading } = useGenres();
 	console.log(genres);
 	return (
 		<Container fluid="lg" className="py-3">
+			{isLoading && <LoadingSpinner />}
 			{genres && (
 				<div className="grey-container">
 					<h2 className="mb-5">Genres</h2>

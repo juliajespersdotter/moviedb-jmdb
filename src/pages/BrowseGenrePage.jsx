@@ -9,6 +9,7 @@ import MovieCard from "../components/MovieCard";
 import Pagination from "../components/Pagination";
 import { useNavigate } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const BrowseGenrePage = () => {
 	const [searchParams, setSearchParams] = useSearchParams({ page: 1 });
@@ -16,11 +17,12 @@ const BrowseGenrePage = () => {
 		? Number(searchParams.get("page"))
 		: null;
 	const { id, name } = useParams();
-	const { data: movies } = useMoviesByGenre(id, page);
+	const { data: movies, isLoading } = useMoviesByGenre(id, page);
 	const navigate = useNavigate();
 
 	return (
 		<Container fluid="lg" className="py-3">
+			{isLoading && <LoadingSpinner />}
 			{movies && (
 				<div className="grey-container">
 					<div className="d-flex justify-content-between w-100 align-items-center">

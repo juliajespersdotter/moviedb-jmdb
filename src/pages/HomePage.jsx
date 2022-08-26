@@ -5,12 +5,14 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import MovieCard from "../components/MovieCard";
 import MovieCarousel from "../components/MovieCarousel";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const HomePage = () => {
-	const { data: popularMovies, isError } = useQuery(
-		"movies",
-		movieDB_API.getPopularMovies
-	);
+	const {
+		data: popularMovies,
+		isError,
+		isLoading,
+	} = useQuery("movies", movieDB_API.getPopularMovies);
 
 	const { data: nowPlaying } = useQuery(
 		"now-playing",
@@ -21,6 +23,8 @@ const HomePage = () => {
 	return (
 		<Container fluid="lg" className="py-3">
 			{isError && <p>An error has occurred</p>}
+
+			{isLoading && <LoadingSpinner />}
 
 			{popularMovies && nowPlaying && topRated && (
 				<>
