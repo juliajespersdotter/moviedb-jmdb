@@ -1,6 +1,7 @@
 import Container from "react-bootstrap/Container";
-import movieDB_API from "../services/movieDB_API";
-import { useQuery } from "react-query";
+import useNowPlaying from "../hooks/useNowPlaying";
+import useTopRated from "../hooks/useTopRated";
+import usePopular from "../hooks/usePopular";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import MovieCard from "../components/MovieCard";
@@ -8,18 +9,11 @@ import MovieCarousel from "../components/MovieCarousel";
 import LoadingSpinner from "../components/LoadingSpinner";
 
 const HomePage = () => {
-	const {
-		data: popularMovies,
-		isError,
-		isLoading,
-	} = useQuery("movies", movieDB_API.getPopularMovies);
+	const { data: popularMovies, isError, isLoading } = useNowPlaying();
 
-	const { data: nowPlaying } = useQuery(
-		"now-playing",
-		movieDB_API.getNowPlaying
-	);
+	const { data: nowPlaying } = usePopular();
 
-	const { data: topRated } = useQuery("top-rated", movieDB_API.getTopRated);
+	const { data: topRated } = useTopRated();
 	return (
 		<Container fluid="lg" className="py-3">
 			{isError && <p>An error has occurred</p>}
