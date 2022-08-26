@@ -25,9 +25,14 @@ const GenresPage = () => {
 								key={genre.id}
 								className="pb-5"
 							>
-								<Link to={`/genres/${genre.name}/${genre.id}`}>
-									{genre.name}
-								</Link>
+								<div className="d-flex justify-content-center">
+									<Link
+										className="genre-links"
+										to={`/genres/${genre.name}/${genre.id}`}
+									>
+										{genre.name}
+									</Link>
+								</div>
 							</Col>
 						))}
 					</Row>

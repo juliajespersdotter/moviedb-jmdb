@@ -11,7 +11,7 @@ const MovieCard = ({ movie }) => {
 			<Link to={`/movie/${movie.id}`}>
 				<Card border="dark" className="bg-dark movie-card">
 					<img
-						className="mb-2"
+						className="mb-2 movie-img"
 						src={`https://image.tmdb.org/t/p/w300/${posterPath}`}
 					/>
 				</Card>
