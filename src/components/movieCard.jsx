@@ -23,11 +23,5 @@ const MovieCard = ({ movie }) => {
 		</>
 	);
 };
-// <p>{movie.title}</p>
-// <Image
-// 	fluid
-// 	rounded
-// 	src={`https://image.tmdb.org/t/p/w200/${posterPath}`}
-// />
 
 export default MovieCard;
