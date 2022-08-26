@@ -70,7 +70,10 @@ const getMovie = (id) => {
 };
 
 const getActor = (id) => {
-	return get(`${BASE_URL}/person/${id}`, requestOptions);
+	return get(
+		`${BASE_URL}/person/${id}?append_to_response=movie_credits`,
+		requestOptions
+	);
 };
 
 const getGenres = () => {

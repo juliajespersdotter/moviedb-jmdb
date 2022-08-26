@@ -1,6 +1,10 @@
 import React from "react";
-import { Button, Container } from "react-bootstrap";
+import { Button, Container, ListGroup } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import MovieCard from "./movieCard";
 
 const ActorDetails = ({ actor }) => {
 	const navigate = useNavigate();
@@ -29,6 +33,32 @@ const ActorDetails = ({ actor }) => {
 						src={`https://image.tmdb.org/t/p/original/${actor.profile_path}`}
 					></img>
 					<p className="mb-5 w-75 ms-5">{actor.biography}</p>
+				</div>
+
+				<div className="pt-5">
+					<h2 className="ms-4 mt-5 mb-3">Starred in</h2>
+					<ListGroup as="ol">
+						{actor.movie_credits.cast.map((movie) => (
+							<ListGroup.Item
+								variant="dark"
+								key={movie.id}
+								as="li"
+								className="d-flex justify-content-between align-items-start"
+							>
+								<div className="ms-2 me-auto">
+									<div className="fw-bold">{movie.title}</div>
+									As {movie.character}
+								</div>
+								<Button
+									variant="danger"
+									as={Link}
+									to={`/movie/${movie.id}`}
+								>
+									Read more
+								</Button>
+							</ListGroup.Item>
+						))}
+					</ListGroup>
 				</div>
 			</Container>
 		</>

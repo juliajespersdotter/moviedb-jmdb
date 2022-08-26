@@ -48,8 +48,10 @@ const MovieDetails = ({ movie }) => {
 						{movie.genres.map((genre, i) => (
 							<Badge
 								key={i}
+								as={Link}
+								to={`/genres/${genre.name}/${genre.id}`}
 								className="p-2 m-1"
-								bg="light"
+								bg="warning"
 								text="dark"
 							>
 								{genre.name}
@@ -83,7 +85,7 @@ const MovieDetails = ({ movie }) => {
 									{actor.character}
 								</div>
 								<Button
-									variant="dark"
+									variant="danger"
 									as={Link}
 									to={`/actor/${actor.id}`}
 								>
