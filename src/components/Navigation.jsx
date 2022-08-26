@@ -20,11 +20,6 @@ const Navigation = () => {
 							</Nav.Link>
 						</Nav.Item>
 						<Nav.Item>
-							<Nav.Link as={NavLink} end to="/series">
-								TV Series
-							</Nav.Link>
-						</Nav.Item>
-						<Nav.Item>
 							<Nav.Link as={NavLink} end to="/genres">
 								Genres
 							</Nav.Link>

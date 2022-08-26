@@ -23,10 +23,8 @@ const requestOptions = {
 	params: {
 		api_key: "6ae7c08e53e35ab0814a90502c6e85cb",
 		language: "en-US",
-		// sort_by: "popularity.desc",
 		include_adult: false,
-		page: 1,
-		append_to_response: "credits",
+		//append_to_response: "credits",
 	},
 };
 
@@ -65,7 +63,10 @@ const getMoviePoster = (size, poster_path) => {
 };
 
 const getMovie = (id) => {
-	return get(`${BASE_URL}/movie/${id}`, requestOptions);
+	return get(
+		`${BASE_URL}/movie/${id}?&append_to_response=credits`,
+		requestOptions
+	);
 };
 
 const getActor = (id) => {
@@ -76,8 +77,11 @@ const getGenres = () => {
 	return get(`${BASE_URL}/genre/movie/list`, requestOptions);
 };
 
-const getMoviesByGenre = (id) => {
-	return get(`${BASE_URL}/discover/movie?&with_genres=${id}`, requestOptions);
+const getMoviesByGenre = (id, page) => {
+	return get(
+		`${BASE_URL}/discover/movie?&with_genres=${id}&page=${page}`,
+		requestOptions
+	);
 };
 
 const exports = {

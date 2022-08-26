@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import { useParams } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import useMoviesByGenre from "../hooks/useMoviesByGenre";
 import MovieCard from "../components/MovieCard";
+import Pagination from "../components/Pagination";
 
 const BrowseGenrePage = () => {
+	const [page, setPage] = useState(1);
 	const { id, name } = useParams();
-	const { data: movies } = useMoviesByGenre(id);
+	const { data: movies } = useMoviesByGenre(id, page);
+	console.log(movies);
 
 	return (
 		<Container fluid="lg" className="py-3">
@@ -29,14 +32,18 @@ const BrowseGenrePage = () => {
 						))}
 					</Row>
 
-					{/* <Pagination
-							page={page}
-							numPages={Math.ceil(data.count / 10)}
-							hasPreviousPage={data.previous}
-							hasNextPage={data.next}
-							onPreviousPage={() => setPage(currentPage => currentPage - 1)}
-							onNextPage={() => setPage(currentPage => currentPage + 1)}
-						/> */}
+					<Pagination
+						page={page}
+						numPages={Math.ceil(movies.total_pages)}
+						hasPreviousPage={movies.page !== 1}
+						hasNextPage={movies.page !== movies.total_pages}
+						onPreviousPage={() =>
+							setPage((currentPage) => currentPage - 1)
+						}
+						onNextPage={() =>
+							setPage((currentPage) => currentPage + 1)
+						}
+					/>
 				</div>
 			)}
 		</Container>
