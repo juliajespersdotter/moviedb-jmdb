@@ -8,7 +8,6 @@ import LoadingSpinner from "../components/LoadingSpinner";
 
 const GenresPage = () => {
 	const { data: genres, isLoading } = useGenres();
-	console.log(genres);
 	return (
 		<Container fluid="lg" className="py-3">
 			{isLoading && <LoadingSpinner />}

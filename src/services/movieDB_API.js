@@ -91,6 +91,13 @@ const getRecommended = (id) => {
 	return get(`${BASE_URL}/movie/${id}/recommendations`, requestOptions);
 };
 
+const getSearchResult = (query, page) => {
+	return get(
+		`${BASE_URL}/search/movie?query=${query}&page=${page}`,
+		requestOptions
+	);
+};
+
 const exports = {
 	getPopularMovies,
 	getNowPlaying,
@@ -101,6 +108,7 @@ const exports = {
 	getGenres,
 	getMoviesByGenre,
 	getRecommended,
+	getSearchResult,
 };
 
 export default exports;

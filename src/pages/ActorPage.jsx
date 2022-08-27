@@ -7,7 +7,6 @@ import LoadingSpinner from "../components/LoadingSpinner";
 const ActorPage = () => {
 	const { id } = useParams();
 	const { data: actor, isLoading } = useActor(id);
-	console.log(actor);
 
 	return (
 		<>

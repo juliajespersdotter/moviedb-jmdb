@@ -12,7 +12,6 @@ const MovieInfoPage = () => {
 	const { id } = useParams();
 	const { data: movie, isLoading } = useMovie(id);
 	const { data: movieRecs } = useMovieRecs(id);
-	console.log(movieRecs);
 
 	return (
 		<Container className="grey-container">

@@ -2,6 +2,7 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link, NavLink } from "react-router-dom";
+import Search from "./Search";
 
 const Navigation = () => {
 	return (
@@ -22,6 +23,11 @@ const Navigation = () => {
 						<Nav.Item>
 							<Nav.Link as={NavLink} end to="/genres">
 								Genres
+							</Nav.Link>
+						</Nav.Item>
+						<Nav.Item>
+							<Nav.Link as={NavLink} end to="/search">
+								Search
 							</Nav.Link>
 						</Nav.Item>
 					</Nav>
