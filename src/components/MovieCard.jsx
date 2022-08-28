@@ -3,11 +3,14 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import useSlice from "../hooks/useSlice";
 import LoadingSpinner from "./LoadingSpinner";
+import { AiFillStar } from "react-icons/ai ";
 
 const MovieCard = ({ movie }) => {
 	const [poster, setPoster] = useState("");
 	const [release_date, setRelease_date] = useState("");
 	const [loading, setLoading] = useState("true");
+	const score = Math.round(movie.vote_average * 10) / 10;
+
 	useEffect(() => {
 		setTimeout(() => {
 			if (!movie.poster_path) {
@@ -33,8 +36,14 @@ const MovieCard = ({ movie }) => {
 					<Card border="dark" className="bg-dark movie-card">
 						<img className="mb-2 movie-img" src={`${poster}`} />
 					</Card>
-					<p className="movie-text mt-2">{movie.title}</p>
-					<span className="subheading text-muted text-light">
+					<div className="score d-flex align-items-center ms-1 mt-2">
+						<span className="me-1 smallstar">
+							<AiFillStar />
+						</span>
+						<p className="score-text">{score}</p>
+					</div>
+					<p className="m-0 mb-1 ms-1 movie-text">{movie.title}</p>
+					<span className="subheading text-muted text-light ms-1">
 						{release_date}
 					</span>
 				</Link>

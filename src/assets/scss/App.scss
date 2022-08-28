@@ -74,6 +74,7 @@ a.navbar-brand {
 
 .movie-text {
 	font-family: "Roboto", sans-serif;
+	font-size: 1.1rem;
 	text-decoration: none;
 	color: white;
 }
@@ -102,6 +103,23 @@ a.navbar-brand {
 }
 
 .star {
-	font-size: 2rem;
+	font-size: 1.8rem;
+	margin-bottom: 1.1rem;
 	color: #f6c515;
+}
+
+.smallstar {
+	font-size: 1rem;
+	color: #f6c515;
+	margin-bottom: 1.4rem;
+}
+
+.score {
+	text-decoration: none;
+	color: white;
+}
+
+.score-text {
+	font-size: 1rem;
+	color: rgb(162, 160, 160);
 }

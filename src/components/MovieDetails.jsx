@@ -15,7 +15,7 @@ const MovieDetails = ({ movie }) => {
 	const release_date = useSlice(movie.release_date);
 	const hours = Math.floor(movie.runtime / 60);
 	const minutes = movie.runtime % 60;
-	const score = Math.floor(movie.vote_average);
+	const score = Math.round(movie.vote_average * 10) / 10;
 
 	return (
 		<>
@@ -29,13 +29,12 @@ const MovieDetails = ({ movie }) => {
 						</span>
 					</div>
 					<div className="votes d-flex align-items-center">
-						<span className="mb-3 me-1 star">
+						<span className="me-1 star">
 							<AiFillStar />
 						</span>
 						<h3>
 							<strong>{score}</strong>
 						</h3>
-						<h4 className="text-muted">/10</h4>
 					</div>
 				</div>
 
