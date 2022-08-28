@@ -1,4 +1,5 @@
 import Carousel from "react-bootstrap/Carousel";
+import { Link } from "react-router-dom";
 
 const MovieCarousel = ({ movies }) => {
 	return (
@@ -6,7 +7,11 @@ const MovieCarousel = ({ movies }) => {
 			{movies && (
 				<Carousel>
 					{movies.map((movie) => (
-						<Carousel.Item key={movie.id}>
+						<Carousel.Item
+							key={movie.id}
+							as={Link}
+							to={`/movie/${movie.id}`}
+						>
 							<div className="w-100 mt-5 m-auto">
 								<img
 									className="w-100 d-block"
