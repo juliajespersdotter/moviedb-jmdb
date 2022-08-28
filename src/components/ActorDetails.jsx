@@ -40,11 +40,6 @@ const ActorDetails = ({ actor }) => {
 						{actor.movie_credits.cast.map((movie, i) => (
 							<Col lg={2} md={4} sm={10} key={i} className="pb-5">
 								<MovieCard movie={movie} />
-								{movie.character && (
-									<p className="movie-text fw-bold mt-2">
-										as {movie.character}
-									</p>
-								)}
 							</Col>
 						))}
 					</Row>
