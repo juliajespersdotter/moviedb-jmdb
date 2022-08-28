@@ -1,10 +1,29 @@
 @import "bootstrap/scss/bootstrap";
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 body {
 	text-decoration: none;
 	background-color: #020202;
 	color: white;
+}
+
+h2,
+h1 {
+	font-family: "Teko", sans-serif;
+	font-size: 2.5rem;
+}
+
+h3,
+h4 {
+	font-family: "Teko", sans-serif;
+	font-size: 1.8rem;
+}
+
+p {
+	font-family: "Roboto", sans-serif;
+	font-size: 1.2rem;
 }
 
 a,
@@ -19,6 +38,16 @@ Link {
 a.nav-link,
 a.navbar-brand {
 	color: white !important;
+}
+
+a.nav-link {
+	font-family: "Teko", sans-serif;
+	font-size: 1.5rem;
+}
+
+a.nav-link:hover {
+	background-color: #9c1c2b;
+	color: $warning;
 }
 
 a.navbar-brand {
@@ -39,22 +68,23 @@ a.navbar-brand {
 .grey-container {
 	background-color: $dark;
 	margin-top: 4rem;
-	// border: 1px solid gray;
 	border-radius: 7px;
 	padding: 2rem;
 }
 
 .movie-text {
+	font-family: "Roboto", sans-serif;
 	text-decoration: none;
 	color: white;
 }
 
 .movie-text:hover {
-	color: red;
+	color: #c31328;
 }
 
 .genre-links {
-	font-size: 1.7rem;
+	font-family: "Teko", sans-serif;
+	font-size: 1.9rem;
 	text-decoration: none;
 	color: #fff;
 	text-align: center;
@@ -69,4 +99,9 @@ a.navbar-brand {
 .genre-links:hover {
 	color: #fff;
 	background-color: #9c1c2b;
+}
+
+.star {
+	font-size: 2rem;
+	color: #f6c515;
 }

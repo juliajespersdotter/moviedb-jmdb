@@ -7,6 +7,7 @@ import Col from "react-bootstrap/Col";
 import useSlice from "../hooks/useSlice";
 import { useNavigate } from "react-router-dom";
 import ActorCard from "./ActorCard";
+import { AiFillStar } from "react-icons/ai ";
 
 const MovieDetails = ({ movie }) => {
 	const navigate = useNavigate();
@@ -28,7 +29,9 @@ const MovieDetails = ({ movie }) => {
 						</span>
 					</div>
 					<div className="votes d-flex align-items-center">
-						<span className="m-2">⭐️</span>
+						<span className="mb-3 me-1 star">
+							<AiFillStar />
+						</span>
 						<h3>
 							<strong>{score}</strong>
 						</h3>
@@ -80,7 +83,7 @@ const MovieDetails = ({ movie }) => {
 							<Col
 								lg={2}
 								md={4}
-								sm={10}
+								sm={6}
 								key={actor.id}
 								className="pb-5"
 							>
