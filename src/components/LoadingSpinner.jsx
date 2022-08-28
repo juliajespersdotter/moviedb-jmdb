@@ -1,9 +1,9 @@
 import ClipLoader from "react-spinners/ClipLoader";
 
-const LoadingSpinner = ({ size }) => {
+const LoadingSpinner = () => {
 	return (
 		<div className="d-flex justify-content-center align-items-center py-5">
-			<ClipLoader size={size} color="#fff" />
+			<ClipLoader size={30} color="#fff" />
 		</div>
 	);
 };

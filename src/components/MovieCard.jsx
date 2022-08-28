@@ -27,7 +27,7 @@ const MovieCard = ({ movie }) => {
 
 	return (
 		<>
-			{loading && <LoadingSpinner size={30} />}
+			{loading && <LoadingSpinner />}
 			{poster && (
 				<Link to={`/movie/${movie.id}`}>
 					<Card border="dark" className="bg-dark movie-card">

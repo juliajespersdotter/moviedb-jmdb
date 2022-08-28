@@ -24,6 +24,7 @@ const SearchPage = () => {
 		isLoading,
 		isSuccess,
 	} = useSearch(query, page);
+	console.log(movies);
 
 	const handleSearch = async (query) => {
 		setSearchParams({ query, page: 1 });
@@ -42,8 +43,11 @@ const SearchPage = () => {
 			<div>
 				{isSuccess && movies.results && (
 					<>
-						{query && (
+						{query && movies.results.length !== 0 && (
 							<p>Showing search results for '{query}'...</p>
+						)}
+						{movies.results.length === 0 && (
+							<p>No results for '{query}'</p>
 						)}
 						<Row>
 							{movies.results.map((movie) => (
