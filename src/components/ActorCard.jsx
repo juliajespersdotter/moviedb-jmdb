@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
-import useSlice from "../hooks/useSlice";
 import LoadingSpinner from "./LoadingSpinner";
 
 const ActorCard = ({ actor }) => {
 	const [poster, setPoster] = useState("");
-	// const [release_date, setRelease_date] = useState("");
 	const [loading, setLoading] = useState("true");
 	useEffect(() => {
 		setTimeout(() => {

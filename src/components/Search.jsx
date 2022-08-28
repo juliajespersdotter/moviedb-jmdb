@@ -17,7 +17,6 @@ const SearchForm = ({ onSearch }) => {
 		onSearch(searchInput);
 	};
 
-	// react to changes in our page state
 	useEffect(() => {
 		searchInputRef.current.focus();
 	}, []);
