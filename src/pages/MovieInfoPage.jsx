@@ -18,7 +18,7 @@ const MovieInfoPage = () => {
 			{isLoading && <LoadingSpinner />}
 			{movie && <MovieDetails movie={movie} />}
 
-			<h2 className="m-5 ms-2">You might also like...</h2>
+			<h2 className="mt-5 pb-3">You might also like...</h2>
 			{movieRecs && (
 				<Row>
 					{movieRecs.results.map((movie) => (

@@ -2,8 +2,11 @@ import React from "react";
 import { Button, Container, ListGroup } from "react-bootstrap";
 import Badge from "react-bootstrap/Badge";
 import { Link } from "react-router-dom";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import useSlice from "../hooks/useSlice";
 import { useNavigate } from "react-router-dom";
+import ActorCard from "./ActorCard";
 
 const MovieDetails = ({ movie }) => {
 	const navigate = useNavigate();
@@ -71,29 +74,20 @@ const MovieDetails = ({ movie }) => {
 				<p className="mb-5 w-75">{movie.overview}</p>
 
 				<div className="pt-5">
-					<p className="ms-4 text-warning">Cast (in credits order)</p>
-					<ListGroup as="ol">
-						{movie.credits.cast.map((actor, i) => (
-							<ListGroup.Item
-								variant="dark"
-								key={i}
-								as="li"
-								className="d-flex justify-content-between align-items-start"
+					<p className="text-warning">Cast (in credits order)</p>
+					<Row>
+						{movie.credits.cast.map((actor) => (
+							<Col
+								lg={2}
+								md={4}
+								sm={10}
+								key={actor.id}
+								className="pb-5"
 							>
-								<div className="ms-2 me-auto">
-									<div className="fw-bold">{actor.name}</div>
-									{actor.character}
-								</div>
-								<Button
-									variant="danger"
-									as={Link}
-									to={`/actor/${actor.id}`}
-								>
-									Read more
-								</Button>
-							</ListGroup.Item>
+								<ActorCard actor={actor} />
+							</Col>
 						))}
-					</ListGroup>
+					</Row>
 				</div>
 			</Container>
 		</>

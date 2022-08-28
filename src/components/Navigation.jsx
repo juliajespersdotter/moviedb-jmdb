@@ -9,7 +9,7 @@ const Navigation = () => {
 		<Navbar className="navbar" expand="md">
 			<Container>
 				<Navbar.Brand as={Link} to="/">
-					MovieDB
+					JMDB
 				</Navbar.Brand>
 
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />

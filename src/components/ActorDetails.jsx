@@ -1,7 +1,9 @@
 import React from "react";
-import { Button, Container, ListGroup } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Button, Container } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import { useNavigate } from "react-router-dom";
+import MovieCard from "./movieCard";
 
 const ActorDetails = ({ actor }) => {
 	const navigate = useNavigate();
@@ -33,29 +35,19 @@ const ActorDetails = ({ actor }) => {
 				</div>
 
 				<div className="pt-5">
-					<h2 className="ms-4 mt-5 mb-3">Starred in</h2>
-					<ListGroup as="ol">
-						{actor.movie_credits.cast.map((movie) => (
-							<ListGroup.Item
-								variant="dark"
-								key={movie.id}
-								as="li"
-								className="d-flex justify-content-between align-items-start"
-							>
-								<div className="ms-2 me-auto">
-									<div className="fw-bold">{movie.title}</div>
-									As {movie.character}
-								</div>
-								<Button
-									variant="danger"
-									as={Link}
-									to={`/movie/${movie.id}`}
-								>
-									Read more
-								</Button>
-							</ListGroup.Item>
+					<h2 className="mt-5 mb-3">Starred in</h2>
+					<Row>
+						{actor.movie_credits.cast.map((movie, i) => (
+							<Col lg={2} md={4} sm={10} key={i} className="pb-5">
+								<MovieCard movie={movie} />
+								{movie.character && (
+									<p className="movie-text fw-bold mt-2">
+										as {movie.character}
+									</p>
+								)}
+							</Col>
 						))}
-					</ListGroup>
+					</Row>
 				</div>
 			</Container>
 		</>
