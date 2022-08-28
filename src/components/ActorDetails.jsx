@@ -3,7 +3,7 @@ import { Button, Container } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { useNavigate } from "react-router-dom";
-import MovieCard from "./movieCard";
+import MovieCard from "./MovieCard";
 
 const ActorDetails = ({ actor }) => {
 	const navigate = useNavigate();
