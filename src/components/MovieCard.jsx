@@ -16,7 +16,7 @@ const MovieCard = ({ movie }) => {
 				);
 			} else {
 				setPoster(
-					`https://image.tmdb.org/t/p/w300/${movie.poster_path}`
+					`https://image.tmdb.org/t/p/w300${movie.poster_path}`
 				);
 			}
 			const release = useSlice(movie.release_date);
@@ -27,7 +27,7 @@ const MovieCard = ({ movie }) => {
 
 	return (
 		<>
-			{loading && <LoadingSpinner size={10} />}
+			{loading && <LoadingSpinner size={30} />}
 			{poster && (
 				<Link to={`/movie/${movie.id}`}>
 					<Card border="dark" className="bg-dark movie-card">
