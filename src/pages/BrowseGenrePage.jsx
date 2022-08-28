@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import { useParams } from "react-router-dom";
 import Row from "react-bootstrap/Row";
@@ -19,6 +19,11 @@ const BrowseGenrePage = () => {
 	const { id, name } = useParams();
 	const { data: movies, isLoading } = useMoviesByGenre(id, page);
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		// scroll to top on page load
+		window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+	}, [movies]);
 
 	return (
 		<Container fluid="lg" className="py-3">
