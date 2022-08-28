@@ -8,6 +8,7 @@ import GenresPage from "./pages/GenresPage";
 import ActorPage from "./pages/ActorPage";
 import BrowseGenrePage from "./pages/BrowseGenrePage";
 import SearchPage from "./pages/SearchPage";
+import Footer from "./components/Footer";
 
 function App() {
 	return (
@@ -23,6 +24,7 @@ function App() {
 				<Route path="/search" element={<SearchPage />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
+			<Footer />
 		</div>
 	);
 }
