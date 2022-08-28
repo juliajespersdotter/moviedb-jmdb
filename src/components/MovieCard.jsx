@@ -2,24 +2,32 @@ import { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import useSlice from "../hooks/useSlice";
+import LoadingSpinner from "./LoadingSpinner";
 
 const MovieCard = ({ movie }) => {
 	const [poster, setPoster] = useState("");
 	const [release_date, setRelease_date] = useState("");
+	const [loading, setLoading] = useState("true");
 	useEffect(() => {
-		if (!movie.poster_path) {
-			setPoster(
-				"https://via.placeholder.com/300x450?text=Poster+Not+Found"
-			);
-		} else {
-			setPoster(`https://image.tmdb.org/t/p/w300/${movie.poster_path}`);
-		}
-		const release = useSlice(movie.release_date);
-		setRelease_date(release);
+		setTimeout(() => {
+			if (!movie.poster_path) {
+				setPoster(
+					"https://via.placeholder.com/300x450?text=Poster+Not+Found"
+				);
+			} else {
+				setPoster(
+					`https://image.tmdb.org/t/p/w300/${movie.poster_path}`
+				);
+			}
+			const release = useSlice(movie.release_date);
+			setRelease_date(release);
+			setLoading(false);
+		}, 1000);
 	}, []);
 
 	return (
 		<>
+			{loading && <LoadingSpinner size={10} />}
 			{poster && (
 				<Link to={`/movie/${movie.id}`}>
 					<Card border="dark" className="bg-dark movie-card">
