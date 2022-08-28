@@ -2,13 +2,15 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import { useSearchParams } from "react-router-dom";
+import { useQuery } from "react-query";
 import useSearch from "../hooks/useSearch";
+import movieDB_API from "../services/movieDB_API";
 import LoadingSpinner from "../components/LoadingSpinner";
 import Pagination from "../components/Pagination";
 import MovieCard from "../components/MovieCard";
 import Search from "../components/Search";
 
-const PeoplePage = () => {
+const SearchPage = () => {
 	const [searchParams, setSearchParams] = useSearchParams({ page: 1 });
 	const page = searchParams.get("page")
 		? Number(searchParams.get("page"))
@@ -22,7 +24,6 @@ const PeoplePage = () => {
 		isLoading,
 		isSuccess,
 	} = useSearch(query, page);
-	console.log(movies);
 
 	const handleSearch = async (query) => {
 		setSearchParams({ query, page: 1 });
@@ -30,7 +31,7 @@ const PeoplePage = () => {
 
 	return (
 		<Container className="py-3 grey-container">
-			<h1 className="mb-3">Search Movies ...</h1>
+			<h1 className="mb-3">Search for Movies</h1>
 
 			<div className="my-4">
 				<Search onSearch={handleSearch} />
@@ -83,4 +84,4 @@ const PeoplePage = () => {
 	);
 };
 
-export default PeoplePage;
+export default SearchPage;

@@ -28,14 +28,14 @@ const SearchForm = ({ onSearch }) => {
 				<Form.Control
 					aria-label="Search"
 					onChange={(e) => setSearchInput(e.target.value)}
-					placeholder="Enter your search query"
+					placeholder="Type in your search..."
 					ref={searchInputRef}
 					required
 					type="text"
 					value={searchInput}
 				/>
 				<Button
-					variant="success"
+					variant="danger"
 					type="submit"
 					disabled={!searchInput.length}
 				>

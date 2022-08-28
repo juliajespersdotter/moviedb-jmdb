@@ -5,7 +5,7 @@ const useSearch = (query, page) => {
 	return useQuery(
 		["search", { query, page }],
 		() => movieDB_API.getSearchResult(query, page),
-		{ keepPreviousData: true }
+		{ enabled: !!query }
 	);
 };
 
