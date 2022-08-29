@@ -31,8 +31,6 @@ const requestOptions = {
 const get = async (endpoint, options) => {
 	const res = await axios.get(endpoint, options);
 
-	console.log(endpoint, options);
-
 	return res.data;
 };
 
