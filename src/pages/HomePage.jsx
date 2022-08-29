@@ -7,6 +7,7 @@ import Col from "react-bootstrap/Col";
 import MovieCard from "../components/MovieCard";
 import MovieCarousel from "../components/MovieCarousel";
 import LoadingSpinner from "../components/LoadingSpinner";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
 	const { data: popularMovies, isError, isLoading } = useNowPlaying();
@@ -24,7 +25,11 @@ const HomePage = () => {
 				<>
 					<MovieCarousel movies={popularMovies.results} />
 					<div className="grey-container">
-						<h2 className="mb-5">Popular movies right now</h2>
+						<h2 className="mb-5">
+							<Link to={`/popular`}>
+								Popular Movies Right Now
+							</Link>
+						</h2>
 						<Row>
 							{popularMovies.results.map((movie) => (
 								<Col
@@ -42,7 +47,9 @@ const HomePage = () => {
 
 					<div className="grey-container">
 						<Row>
-							<h2 className="mb-5">Now Playing</h2>
+							<h2 className="mb-5">
+								<Link to={`/nowplaying`}>Now Playing</Link>
+							</h2>
 							{nowPlaying.results.map((movie) => (
 								<Col
 									lg={3}
@@ -59,7 +66,9 @@ const HomePage = () => {
 
 					<div className="grey-container">
 						<Row>
-							<h2 className="mb-5">Top Rated</h2>
+							<h2 className="mb-5">
+								<Link to={`/toprated`}>Top Rated</Link>
+							</h2>
 							{topRated.results.map((movie) => (
 								<Col
 									lg={3}
