@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -20,6 +21,11 @@ const SearchPage = () => {
 	const handleSearch = async (query) => {
 		setSearchParams({ query, page: 1 });
 	};
+
+	useEffect(() => {
+		// scroll to top on page load
+		window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+	}, [movies]);
 
 	return (
 		<Container className="py-3 grey-container">

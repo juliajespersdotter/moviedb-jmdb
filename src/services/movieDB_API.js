@@ -10,9 +10,6 @@ const BASE_URL = "https://api.themoviedb.org/3";
 
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
 
-const FAKE_SLOW_API = false;
-const FAKE_SLOW_API_DELAY = 1500;
-
 // Poster Image URL
 // last .jpg is poster_path from movie
 // https://image.tmdb.org/t/p/w500/ujr5pztc1oitbe7ViMUOilFaJ7s.jpg
