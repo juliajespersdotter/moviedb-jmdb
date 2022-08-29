@@ -16,7 +16,7 @@ const IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
 
 const requestOptions = {
 	params: {
-		api_key: "6ae7c08e53e35ab0814a90502c6e85cb",
+		api_key: import.meta.env.VITE_API_KEY,
 		language: "en-US",
 		include_adult: false,
 	},
@@ -40,7 +40,7 @@ const get = async (endpoint, options) => {
  * GET movie/popular
  * @returns list of popular movies
  */
-const getPopularMovies = (page) => {
+const getPopularMovies = (page = 1) => {
 	return get(`${BASE_URL}/movie/popular?&page=${page}`, requestOptions);
 };
 
@@ -48,7 +48,7 @@ const getPopularMovies = (page) => {
  *
  * @returns list of movies in cinema
  */
-const getNowPlaying = (page) => {
+const getNowPlaying = (page = 1) => {
 	return get(`${BASE_URL}/movie/now_playing?&page=${page}`, requestOptions);
 };
 
@@ -56,7 +56,7 @@ const getNowPlaying = (page) => {
  *
  * @returns list of top rated movies
  */
-const getTopRated = (page) => {
+const getTopRated = (page = 1) => {
 	return get(`${BASE_URL}/movie/top_rated?&page=${page}`, requestOptions);
 };
 
