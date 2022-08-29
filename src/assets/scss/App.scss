@@ -70,6 +70,7 @@ a.navbar-brand {
 	margin-top: 4rem;
 	border-radius: 7px;
 	padding: 2rem;
+	padding-bottom: 1rem;
 }
 
 .movie-text {
@@ -131,4 +132,15 @@ a.navbar-brand {
 	color: rgb(229, 229, 229);
 	margin-top: 4rem;
 	padding: 1rem;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+}
+
+#App {
+	position: relative;
+	min-height: 100vh;
+	padding-bottom: 4rem;
 }
