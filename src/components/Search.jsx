@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
-const SearchForm = ({ onSearch }) => {
+const Search = ({ onSearch }) => {
 	const [searchInput, setSearchInput] = useState("");
 	const searchInputRef = useRef();
 
@@ -45,4 +45,4 @@ const SearchForm = ({ onSearch }) => {
 	);
 };
 
-export default SearchForm;
+export default Search;
