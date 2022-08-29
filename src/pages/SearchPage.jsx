@@ -16,7 +16,7 @@ const SearchPage = () => {
 		: null;
 	const query = searchParams.get("query") ?? "";
 
-	const { data: movies, isLoading, isSuccess } = useSearch(query, page);
+	const { data: movies, isLoading } = useSearch(query, page);
 
 	const handleSearch = async (query) => {
 		setSearchParams({ query, page: 1 });
@@ -38,7 +38,7 @@ const SearchPage = () => {
 			{isLoading && <LoadingSpinner />}
 
 			<div>
-				{isSuccess && movies.results && (
+				{movies.results && (
 					<>
 						{query && movies.results.length !== 0 && (
 							<p>Showing search results for '{query}'...</p>

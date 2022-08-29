@@ -15,8 +15,18 @@ const Navigation = () => {
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav activeKey="/">
 						<Nav.Item>
-							<Nav.Link as={NavLink} end to="/">
-								Home
+							<Nav.Link as={NavLink} end to="/popular">
+								Popular
+							</Nav.Link>
+						</Nav.Item>
+						<Nav.Item>
+							<Nav.Link as={NavLink} end to="/nowplaying">
+								Now Playing
+							</Nav.Link>
+						</Nav.Item>
+						<Nav.Item>
+							<Nav.Link as={NavLink} end to="/toprated">
+								Top Rated
 							</Nav.Link>
 						</Nav.Item>
 						<Nav.Item>

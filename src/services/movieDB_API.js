@@ -33,9 +33,6 @@ const get = async (endpoint, options) => {
 
 	console.log(endpoint, options);
 
-	FAKE_SLOW_API &&
-		(await new Promise((r) => setTimeout(r, FAKE_SLOW_API_DELAY)));
-
 	return res.data;
 };
 
@@ -43,24 +40,24 @@ const get = async (endpoint, options) => {
  * GET movie/popular
  * @returns list of popular movies
  */
-const getPopularMovies = () => {
-	return get(`${BASE_URL}/movie/popular`, requestOptions);
+const getPopularMovies = (page) => {
+	return get(`${BASE_URL}/movie/popular?&page=${page}`, requestOptions);
 };
 
 /** GET movie/now_playing
  *
  * @returns list of movies in cinema
  */
-const getNowPlaying = () => {
-	return get(`${BASE_URL}/movie/now_playing`, requestOptions);
+const getNowPlaying = (page) => {
+	return get(`${BASE_URL}/movie/now_playing?&page=${page}`, requestOptions);
 };
 
 /** GET movie/top_rated
  *
  * @returns list of top rated movies
  */
-const getTopRated = () => {
-	return get(`${BASE_URL}/movie/top_rated`, requestOptions);
+const getTopRated = (page) => {
+	return get(`${BASE_URL}/movie/top_rated?&page=${page}`, requestOptions);
 };
 
 /** GET movie poster

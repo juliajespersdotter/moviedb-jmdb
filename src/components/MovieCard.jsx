@@ -13,6 +13,7 @@ const MovieCard = ({ movie }) => {
 
 	useEffect(() => {
 		setTimeout(() => {
+			// if movie.poster_path is null in response, set placeholder img as poster
 			if (!movie.poster_path) {
 				setPoster(
 					"https://via.placeholder.com/300x450?text=Poster+Not+Found"
@@ -22,6 +23,7 @@ const MovieCard = ({ movie }) => {
 					`https://image.tmdb.org/t/p/w300${movie.poster_path}`
 				);
 			}
+			// only show year of release not exact date
 			const release = useSlice(movie.release_date);
 			setRelease_date(release);
 			setLoading(false);
