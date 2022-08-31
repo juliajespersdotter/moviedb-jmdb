@@ -10,9 +10,9 @@ import LoadingSpinner from "../components/LoadingSpinner";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
-	const { data: popularMovies, isError, isLoading } = useNowPlaying();
+	const { data: popularMovies, isError, isLoading } = usePopular();
 
-	const { data: nowPlaying } = usePopular();
+	const { data: nowPlaying } = useNowPlaying();
 
 	const { data: topRated } = useTopRated();
 	return (

@@ -19,6 +19,7 @@ const requestOptions = {
 		api_key: "6ae7c08e53e35ab0814a90502c6e85cb",
 		language: "en-US",
 		include_adult: false,
+		region: "SE",
 	},
 };
 
