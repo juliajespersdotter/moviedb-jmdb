@@ -1,22 +1,23 @@
-import Container from "react-bootstrap/Container";
-import useNowPlaying from "../hooks/useNowPlaying";
-import useTopRated from "../hooks/useTopRated";
-import usePopular from "../hooks/usePopular";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import MovieCard from "../components/MovieCard";
-import MovieCarousel from "../components/MovieCarousel";
-import LoadingSpinner from "../components/LoadingSpinner";
-import { Link } from "react-router-dom";
+import Container from 'react-bootstrap/Container'
+import useNowPlaying from '../hooks/useNowPlaying'
+import useTopRated from '../hooks/useTopRated'
+import usePopular from '../hooks/usePopular'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import MovieCard from '../components/MovieCard'
+import MovieCarousel from '../components/MovieCarousel'
+import LoadingSpinner from '../components/LoadingSpinner'
+import { Link } from 'react-router-dom'
+import VisitedMovies from '../components/VisitedMovies'
 
 const HomePage = () => {
-	const { data: popularMovies, isError, isLoading } = useNowPlaying();
+	const { data: popularMovies, isError, isLoading } = useNowPlaying()
 
-	const { data: nowPlaying } = usePopular();
+	const { data: nowPlaying } = usePopular()
 
-	const { data: topRated } = useTopRated();
+	const { data: topRated } = useTopRated()
 	return (
-		<Container fluid="lg" className="py-3">
+		<Container fluid='lg' className='py-3'>
 			{isError && <p>An error has occurred</p>}
 
 			{isLoading && <LoadingSpinner />}
@@ -24,20 +25,21 @@ const HomePage = () => {
 			{popularMovies && nowPlaying && topRated && (
 				<>
 					<MovieCarousel movies={popularMovies.results} />
-					<div className="grey-container">
-						<h2 className="mb-5">
+					<VisitedMovies />
+					<div className='grey-container'>
+						<h2 className='mb-5'>
 							<Link to={`/popular`}>
 								Popular Movies Right Now
 							</Link>
 						</h2>
 						<Row>
-							{popularMovies.results.map((movie) => (
+							{popularMovies.results.map(movie => (
 								<Col
 									lg={3}
 									md={4}
 									sm={10}
 									key={movie.id}
-									className="pb-5"
+									className='pb-5'
 								>
 									<MovieCard movie={movie} />
 								</Col>
@@ -45,18 +47,18 @@ const HomePage = () => {
 						</Row>
 					</div>
 
-					<div className="grey-container">
+					<div className='grey-container'>
 						<Row>
-							<h2 className="mb-5">
+							<h2 className='mb-5'>
 								<Link to={`/nowplaying`}>Now Playing</Link>
 							</h2>
-							{nowPlaying.results.map((movie) => (
+							{nowPlaying.results.map(movie => (
 								<Col
 									lg={3}
 									md={4}
 									sm={10}
 									key={movie.id}
-									className="pb-5"
+									className='pb-5'
 								>
 									<MovieCard movie={movie} />
 								</Col>
@@ -64,18 +66,18 @@ const HomePage = () => {
 						</Row>
 					</div>
 
-					<div className="grey-container">
+					<div className='grey-container'>
 						<Row>
-							<h2 className="mb-5">
+							<h2 className='mb-5'>
 								<Link to={`/toprated`}>Top Rated</Link>
 							</h2>
-							{topRated.results.map((movie) => (
+							{topRated.results.map(movie => (
 								<Col
 									lg={3}
 									md={4}
 									sm={10}
 									key={movie.id}
-									className="pb-5"
+									className='pb-5'
 								>
 									<MovieCard movie={movie} />
 								</Col>
@@ -85,7 +87,7 @@ const HomePage = () => {
 				</>
 			)}
 		</Container>
-	);
-};
+	)
+}
 
-export default HomePage;
+export default HomePage
