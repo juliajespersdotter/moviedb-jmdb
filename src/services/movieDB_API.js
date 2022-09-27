@@ -19,6 +19,7 @@ const requestOptions = {
 		api_key: import.meta.env.VITE_API_KEY,
 		language: "en-US",
 		include_adult: false,
+		region: "SE",
 	},
 };
 

@@ -11,9 +11,9 @@ import { Link } from 'react-router-dom'
 import VisitedMovies from '../components/VisitedMovies'
 
 const HomePage = () => {
-	const { data: popularMovies, isError, isLoading } = useNowPlaying()
+	const { data: popularMovies, isError, isLoading } = usePopular()
 
-	const { data: nowPlaying } = usePopular()
+	const { data: nowPlaying } = useNowPlaying()
 
 	const { data: topRated } = useTopRated()
 	return (
