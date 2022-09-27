@@ -7,23 +7,26 @@ const VisitedMovies = () => {
 	console.log(movies)
 
 	return (
-		<div className='grey-container'>
-			<Row>
-				<h2 className='mb-5'>Recently Visited Movies</h2>
-				{movies &&
-					movies.map(movie => (
-						<Col
-							lg={2}
-							md={3}
-							sm={10}
-							key={movie.id}
-							className='pb-5'
-						>
-							<MovieCard movie={movie} />
-						</Col>
-					))}
-			</Row>
-		</div>
+		<>
+			{movies && (
+				<div className='grey-container'>
+					<Row>
+						<h2 className='mb-5'>Recently Visited Movies</h2>
+						{movies.map(movie => (
+							<Col
+								lg={2}
+								md={3}
+								sm={10}
+								key={movie.id}
+								className='pb-5'
+							>
+								<MovieCard movie={movie} />
+							</Col>
+						))}
+					</Row>
+				</div>
+			)}
+		</>
 	)
 }
 
