@@ -22,7 +22,7 @@ const MovieInfoPage = () => {
 		if (movie) {
 			if (storedValue) {
 				const indexInArray = storedValue.findIndex(
-					storedMovie => storedMovie.id === movie.id
+					movieArray => movieArray.id === movie.id
 				)
 				if (indexInArray >= 0) {
 					storedValue.splice(indexInArray, 1)
