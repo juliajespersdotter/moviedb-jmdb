@@ -8,7 +8,6 @@ import useSlice from '../hooks/useSlice'
 import { useNavigate } from 'react-router-dom'
 import ActorCard from './ActorCard'
 import { AiFillStar } from 'react-icons/ai '
-import useLocalStorage from '../hooks/useLocalStorage'
 
 const MovieDetails = ({ movie }) => {
 	const navigate = useNavigate()
@@ -17,30 +16,6 @@ const MovieDetails = ({ movie }) => {
 	const hours = Math.floor(movie.runtime / 60)
 	const minutes = movie.runtime % 60
 	const score = Math.round(movie.vote_average * 10) / 10
-	const [storedValue, setNewValue] = useLocalStorage('visited-movies', [
-		movie,
-	])
-
-	useEffect(() => {
-		if (movie) {
-			console.log(movie)
-			if (storedValue) {
-				console.log('storedValue', storedValue)
-				const indexInArray = storedValue.findIndex(
-					storedMovie => storedMovie.id === movie.id
-				)
-				if (indexInArray >= 0) {
-					storedValue.splice(indexInArray, 1)
-				}
-
-				if (storedValue.length === 10) {
-					storedValue.pop()
-				}
-				storedValue.unshift(movie)
-				setNewValue(storedValue)
-			}
-		}
-	}, [movie])
 
 	return (
 		<>

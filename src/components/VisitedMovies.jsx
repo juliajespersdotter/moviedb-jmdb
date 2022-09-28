@@ -4,7 +4,6 @@ import MovieCard from './MovieCard'
 
 const VisitedMovies = () => {
 	const movies = JSON.parse(localStorage.getItem('visited-movies'))
-	console.log(movies)
 
 	return (
 		<>
