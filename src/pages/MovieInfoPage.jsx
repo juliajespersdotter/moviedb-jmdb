@@ -19,7 +19,6 @@ const MovieInfoPage = () => {
 	useEffect(() => {
 		if (movie) {
 			if (storedValue.length) {
-				console.log(storedValue)
 				const index = storedValue.findIndex(
 					movieArray => movieArray.id === movie.id
 				)
