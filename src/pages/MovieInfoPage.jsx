@@ -14,26 +14,25 @@ const MovieInfoPage = () => {
 	const { id } = useParams()
 	const { data: movie, isLoading } = useMovie(id)
 	const { data: movieRecs } = useMovieRecs(id)
-	const [storedValue, setNewValue] = useLocalStorage('visited-movies', [
-		movie,
-	])
+	const [storedValue, setNewValue] = useLocalStorage('visited-movies', [])
 
 	useEffect(() => {
 		if (movie) {
 			if (storedValue.length) {
-				// const index = storedValue.findIndex(
-				// 	movieArray => movieArray.id === movie.id
-				// )
-				// if (index >= 0) {
-				// 	storedValue.splice(index, 1)
-				// }
+				console.log(storedValue)
+				const index = storedValue.findIndex(
+					movieArray => movieArray.id === movie.id
+				)
+				if (index >= 0) {
+					storedValue.splice(index, 1)
+				}
 
 				if (storedValue.length === 10) {
 					storedValue.pop()
 				}
-				storedValue.unshift(movie)
-				setNewValue(storedValue)
 			}
+			storedValue.unshift(movie)
+			setNewValue(storedValue)
 		}
 	}, [movie])
 
