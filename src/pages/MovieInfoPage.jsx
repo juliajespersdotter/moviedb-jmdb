@@ -21,12 +21,12 @@ const MovieInfoPage = () => {
 	useEffect(() => {
 		if (movie) {
 			if (storedValue.length) {
-				const index = storedValue.findIndex(
-					movieArray => movieArray.id === movie.id
-				)
-				if (index >= 0) {
-					storedValue.splice(index, 1)
-				}
+				// const index = storedValue.findIndex(
+				// 	movieArray => movieArray.id === movie.id
+				// )
+				// if (index >= 0) {
+				// 	storedValue.splice(index, 1)
+				// }
 
 				if (storedValue.length === 10) {
 					storedValue.pop()
