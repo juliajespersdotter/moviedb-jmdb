@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
-import usePopular from '../hooks/usePopular'
 import { Container, Button } from 'react-bootstrap'
 import LoadingSpinner from '../components/LoadingSpinner'
-import Pagination from '../components/Pagination'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import MovieCard from '../components/MovieCard'
