@@ -21,11 +21,11 @@ const MovieInfoPage = () => {
 	useEffect(() => {
 		if (movie) {
 			if (storedValue.length) {
-				const indexInArray = storedValue.findIndex(
+				const index = storedValue.findIndex(
 					movieArray => movieArray.id === movie.id
 				)
-				if (indexInArray >= 0) {
-					storedValue.splice(indexInArray, 1)
+				if (index >= 0) {
+					storedValue.splice(index, 1)
 				}
 
 				if (storedValue.length === 10) {

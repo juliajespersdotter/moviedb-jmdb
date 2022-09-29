@@ -7,7 +7,7 @@ const useLocalStorage = (key, defaultValue) => {
 			: defaultValue
 	)
 
-	if (!storedValue) {
+	if (!storedValue.length) {
 		localStorage.setItem(key, JSON.stringify(defaultValue))
 		console.log('storedValue', storedValue)
 	}
